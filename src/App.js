@@ -1,34 +1,40 @@
 import React from 'react';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './HomePage';
+import ProductsPage from './ProductsPage';
+import ContactPage from './ContactPage';
+import InstitutionalPage from './InstitutionalPage';
+import ProjectsPage from './ProjectsPage'
+import ReferencesPage from './ReferencesPage';
+import QuotePage from './QuotePage';
+import Navbar from './Navbar'; 
+import Footer from './Footer';
 function App() {
   return (
-    <div className="flex flex-col h-full items-center justify-center bg-gray-200 text-gray-700">
-      <div className="flex items-center">
-        <h1 className="text-6xl font-thin tracking-wider">Create React App + Tailwind CSS</h1>
-      </div>
-      <p className="my-6 tracking-wide">
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <div className="mt-6 flex justify-center">
-        <a
-          className="uppercase hover:underline"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="ml-10 uppercase hover:underline"
-          href="https://tailwindcss.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Tailwind
-        </a>
-      </div>
-    </div>
+    <Router>
+      <Navbar /> {/* Navbar'ı buraya ekleyin */}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        {/* Home */}
+        <Route path="/products" element={<ProductsPage />} />
+        {/* Ürünler */}
+        <Route path="/institutional" element={<InstitutionalPage />} />
+        {/* Kurumsal */}
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Contact */}
+        <Route path="/projects" element={<ProjectsPage />} />
+        {/* Ürünler */}
+        <Route path="/references" element={<ReferencesPage />} />
+        {/* Referanslar */}
+        <Route path="/quote" element={<QuotePage />} />
+        {/* Get a Quote */}
+      </Routes>
+      <Footer /> 
+    </Router>
   );
 }
 
 export default App;
+
+
+// Home - Kurumsal - Ürünler - Projeler - Referanslar - Contact - Teklif Al
